@@ -4,7 +4,8 @@ import java.util.*;
 
 public class LottoV1 {
 
-    public static final int MAX_VALUE = 49;
+    public static final int MAX_VALUE = 40;
+    public static final int LIMIT = 5;
 
     public static void main(String[] args) {
 
@@ -23,10 +24,10 @@ public class LottoV1 {
         // ...
 
         // 1 readhttps://github.com/dariusblajan/FastTrackIT-Lab6-LottoGame
-        int[] myNumbers = new int[6];
+        int[] myNumbers = new int[LIMIT];
         Random myNumbersMachine = new Random();
        
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < LIMIT; i++) {
             int nr = myNumbersMachine.nextInt(MAX_VALUE) + 1;
             //check if nr is not already in the array, if it is generate a new one
             for (int j = 0; j < i; j++)
@@ -35,7 +36,7 @@ public class LottoV1 {
         }
         // here are my numbers
         System.out.println("here are my numbers:");
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < LIMIT; i++)
             System.out.print(myNumbers[i] + " |");
 
         System.out.println("");
@@ -48,8 +49,8 @@ public class LottoV1 {
         lottoMachine.setSeed(System.currentTimeMillis());
 
         // 2 generate the numbers
-        int[] sixGeneratedNumbers = new int[6];
-        for (int i = 0; i < 6; i++) {
+        int[] sixGeneratedNumbers = new int[LIMIT];
+        for (int i = 0; i < LIMIT; i++) {
 
             int nr = lottoMachine.nextInt(MAX_VALUE) + 1;
 
@@ -71,17 +72,17 @@ public class LottoV1 {
 
         // 3 print the extraction
         System.out.println("here is the extraction today:");
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < LIMIT; i++)
             System.out.print(sixGeneratedNumbers[i] + " |");
 
         System.out.println("");
 
         //compare and tell if won
         int howManyWons = 0;
-        int[] wonNumbers = new int[6];
+        int[] wonNumbers = new int[LIMIT];
 
-        for (int i = 0; i < 6; i++)
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < LIMIT; i++)
+            for (int j = 0; j < LIMIT; j++) {
 
                 if (myNumbers[i] == sixGeneratedNumbers[j]) {
                     howManyWons++;
@@ -106,7 +107,7 @@ public class LottoV1 {
         }
 
         System.out.println("here is what you won: ");
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < LIMIT; i++)
             if (wonNumbers[i] != 0)
                 System.out.print(wonNumbers[i] + " |");
 
