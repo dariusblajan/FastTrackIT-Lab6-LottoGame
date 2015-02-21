@@ -4,6 +4,8 @@ import java.util.*;
 
 public class LottoV1 {
 
+    public static final int MAX_VALUE = 49;
+
     public static void main(String[] args) {
 
         //  read users' numbers and store them
@@ -20,15 +22,15 @@ public class LottoV1 {
         // comment
         // ...
 
-        // 1 read
+        // 1 readhttps://github.com/dariusblajan/FastTrackIT-Lab6-LottoGame
         int[] myNumbers = new int[6];
         Random myNumbersMachine = new Random();
        
         for (int i = 0; i < 6; i++) {
-            int nr = myNumbersMachine.nextInt(49) + 1;
+            int nr = myNumbersMachine.nextInt(MAX_VALUE) + 1;
             //check if nr is not already in the array, if it is generate a new one
             for (int j = 0; j < i; j++)
-                if (myNumbers[j] == nr) nr = myNumbersMachine.nextInt(49) + 1;
+                if (myNumbers[j] == nr) nr = myNumbersMachine.nextInt(MAX_VALUE) + 1;
             myNumbers[i] = nr;
         }
         // here are my numbers
@@ -49,12 +51,12 @@ public class LottoV1 {
         int[] sixGeneratedNumbers = new int[6];
         for (int i = 0; i < 6; i++) {
 
-            int nr = lottoMachine.nextInt(49) + 1;
+            int nr = lottoMachine.nextInt(MAX_VALUE) + 1;
 
             //check if nr is not already in the array, if it is generate a new one
             for (int j = 0; j < i; j++)
                 if (sixGeneratedNumbers[j] == nr)
-                    nr = lottoMachine.nextInt(49) + 1;
+                    nr = lottoMachine.nextInt(MAX_VALUE) + 1;
 
             sixGeneratedNumbers[i] = nr;
 
